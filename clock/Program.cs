@@ -6,7 +6,7 @@ Console.Write("Введите часы: ");
 int houruser = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите минуты: ");
 int min = Convert.ToInt32(Console.ReadLine());
-hour = (houruser*5);
+hour = (houruser*5+min/12);
 
 //Console.Write(time);
 //Console.WriteLine(" ");
@@ -16,7 +16,7 @@ hour = (houruser*5);
 //Console.WriteLine(" ");
 //Console.Write(houruser);
 
-while (min != hour)
+while (min-1 != hour)
 {
     min ++;
     if (min % 12 == 0)
