@@ -11,7 +11,7 @@ int ffspeed = 1;
 int sfspeed = 2;
 int dogspeed = 5;
 int friend = 2;
-int time = 1;
+int time = 0;
 
 while (distance > 10)
 {
