@@ -16,3 +16,28 @@ hour = (houruser*5);
 //Console.WriteLine(" ");
 //Console.Write(houruser);
 
+while (min != hour)
+{
+    min ++;
+    if (min % 12 == 0)
+    {
+        hour ++;
+    }
+    if (min == 60)
+    {
+        min = 0;
+    }
+    if (hour == 60)
+    {
+        hour = 0;
+    }
+time ++;
+}
+
+Console.Write("Стрелки пересеклись на :");
+Console.Write(hour/5);
+Console.WriteLine("часов");
+Console.Write(min);
+Console.WriteLine("минут");
+Console.Write("Прошло времени :");
+Console.Write(time);
