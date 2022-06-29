@@ -13,3 +13,25 @@
 //     }
 // }
 
+//Создать колоду
+void ArrayPrint(int[] ar)
+{
+    int count = ar.Length;
+    int position = 0;    
+    while (position < count)
+    {
+        System.Console.Write(" ");
+        System.Console.Write(ar[position]);
+        position++;
+    }
+}
+
+int[] numbers = new int[13];`
+int index = 0;
+while (index < 13)
+{
+    numbers[index] = index;
+    index++;
+}
+
+ArrayPrint(numbers);
