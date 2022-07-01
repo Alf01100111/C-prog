@@ -13,8 +13,17 @@
 //     }
 // }
 
+// int[] numbers = new int[13];
+// int index = 0;
+// while (index < 13)
+// {
+//     numbers[index] = index;
+//     index++;
+// }
+
+
 //Создать колоду
-void ArrayPrint(int[] ar)
+void ArrayPrint(string[] ar)
 {
     int count = ar.Length;
     int position = 0;    
@@ -26,12 +35,28 @@ void ArrayPrint(int[] ar)
     }
 }
 
-int[] numbers = new int[13];`
-int index = 0;
-while (index < 13)
+
+string[] deck = {"Ad", "2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "Td", "Jd", "Qd", "Kd",
+                 "Ac", "2c", "3c", "4c", "5c", "6c", "7c", "8c", "9c", "Tc", "Jc", "Qc", "Kc",
+                 "Ah", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "Th", "Jh", "Qh", "Kh",
+                 "As", "2s", "3s", "4s", "5s", "6s", "7s", "8s", "9s", "Ts", "Js", "Qs", "Ks"};
+
+void Shuffle(string[] arr)
 {
-    numbers[index] = index;
-    index++;
+    
+    int i = arr.Length -1;
+    Random rand = new Random();
+
+while (i >= 1)
+{
+    int j = rand.Next(i + 1);
+    string tmp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = tmp;     
+    
+    i--;
+}
 }
 
-ArrayPrint(numbers);
+Shuffle(deck);
+ArrayPrint(deck);
