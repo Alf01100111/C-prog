@@ -4,9 +4,9 @@
     while (index <= n)
     {
         int result = index*index;
-        System.Console.Write($" {result}");
+        System.Console.Write($" {result},");
         index++;
     }
+    System.Console.Write("\b \b");
 }
-
-sqrtable(8);
+sqrtable(16);
