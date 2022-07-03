@@ -14,3 +14,4 @@ int num = int.Parse(Console.ReadLine()!);
 System.Console.WriteLine(GetSum(num));
 
 // Сумма чисел от 1 до а
+
