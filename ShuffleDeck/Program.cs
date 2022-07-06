@@ -26,7 +26,7 @@
 void ArrayPrint(string[] ar)
 {
     int count = ar.Length;
-    int position = 0;    
+    int position = 0;
     while (position < count)
     {
         System.Console.Write(" ");
@@ -43,20 +43,58 @@ string[] deck = {"Ad", "2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "Td", "Jd
 
 void Shuffle(string[] arr)
 {
-    
-    int i = arr.Length -1;
+    int i = arr.Length - 1;
     Random rand = new Random();
+    while (i >= 1)
+    {
+        int j = rand.Next(i + 1);
+        string tmp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = tmp;
 
-while (i >= 1)
-{
-    int j = rand.Next(i + 1);
-    string tmp = arr[j];
-    arr[j] = arr[i];
-    arr[i] = tmp;     
-    
-    i--;
+        i--;
+    }
 }
+
+System.Console.WriteLine("Are you want to play - (y/n): ");
+string gamestchoice = Console.ReadLine();
+if (gamestchoice == "y")
+{
+    GameCircle();
+}
+else
+{
+    System.Console.WriteLine("Пока");
 }
 
 Shuffle(deck);
-ArrayPrint(deck);
+// ArrayPrint(deck);
+
+void GameCircle()
+{
+    int round = 0;
+    Console.Clear();
+    Shuffle(deck);
+    ArrayPrint(deck);
+    
+    string usercards = deck[round++] + deck[round++];
+    string croupiercards = deck[round++] + deck[round++];
+    
+    Console.WriteLine($"Ваши карты                            Карты Крупье ");
+    Console.WriteLine($"{usercards}                                   {croupiercards[0]}{croupiercards[1]}??");
+
+    System.Console.WriteLine("Ещё карту? (y/n)");
+    string addcard = Console.ReadLine();
+    if (addcard == "y")
+    {
+        usercards += deck[round++];
+    }
+    else
+    {
+        System.Console.WriteLine("заглушка");
+    }
+    Console.WriteLine($"Ваши карты                            Карты Крупье ");
+    Console.WriteLine($"{usercards}                                   {croupiercards[0]}{croupiercards[1]}??");
+
+}
+
