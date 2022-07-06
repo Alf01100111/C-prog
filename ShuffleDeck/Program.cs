@@ -81,11 +81,11 @@ void GameCircle()
     string croupiercards = deck[round++] + deck[round++];
     
     Console.WriteLine($"Ваши карты                            Карты Крупье ");
-    Console.WriteLine($"{usercards}                                   {croupiercards[0]}{croupiercards[1]}??");
+    Console.WriteLine($"{usercards}                                   {croupiercards[0]}{croupiercards[1]}??");          //сделать отдельным методом отображение карт
 
     System.Console.WriteLine("Ещё карту? (y/n)");
     string addcard = Console.ReadLine();
-    if (addcard == "y")
+    if (addcard == "y")                                                                                                  //дальше пишем метод для подсчета очков.
     {
         usercards += deck[round++];
     }
