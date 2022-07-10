@@ -31,4 +31,3 @@ System.Console.WriteLine("введите длину массива");
 int size = Convert.ToInt32(Console.ReadLine());
 int[] Massiv = GetArrayRandom(size);
 PrintArray(Massiv);
-
