@@ -18,13 +18,53 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(matrix[i, j] + "\t");       
+            Console.Write(matrix[i, j] + "\t");
         }
         Console.WriteLine();
     }
 }
 
-int FindMinElement(int[,] matrix, ref int indexI, ref int indexJ)
+void FindMinElement(int[,] matrix, ref int indexI, ref int indexJ)
 {
     int min = int.MaxValue;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i, j] < min)
+            {
+                min = matrix[i, j];
+                indexI = i;
+                indexJ = j;
+            }
+        }
+    }
 }
+
+int[,] DelRowColByInd(int[,] matrix, int indexI, int indexJ)
+{
+    int[,] resultArr = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
+    int offsetI = 0;
+    int offsetJ = 0;
+    for (int i = 0; i < resultArr.GetLength(0); i++)
+    {
+        if (i == indexI) offsetI++;
+        for (int j = 0; j < resultArr.GetLength(1); j++)
+        {
+            if (j == indexJ) offsetJ++;
+            resultArr[i, j] = matrix[i + offsetI, j + offsetJ];
+        }
+    }
+    return resultArr;
+}
+int[,] arr = GetMatrix(4, 4, 0, 10);
+PrintMatrix(arr);
+
+int minI = 0;
+int minJ = 0;
+FindMinElement(arr, ref minI, ref minJ);
+
+
+System.Console.WriteLine($"{minI}, {minJ}");
+
+PrintMatrix(DelRowColByInd(arr, minI, minJ));
