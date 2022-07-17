@@ -1,7 +1,7 @@
 ﻿int row = Int32.Parse(Console.ReadLine());
 int column = Int32.Parse(Console.ReadLine());
 
-double [,] matrix = new double[row,column];
+int [,] matrix = new int[row,column];
 
 for (int i = 0; i < matrix.GetLength(0); i++)
 {
